@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    dark: '#000000',
+                    'dark-secondary': '#1e1e1e',
+                    custom: '#6698FF',
+                },
+                fontFamily: {
+                    times: ['"Times New Roman"', 'serif'],
+                },
+            },
+        },
+    };
+    </script>
+</head>
+<body class="bg-dark text-white">
+    <nav>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 justify-between items-center">
+                
+                <div class="text-xl">
+                    <img src="Subhadeep.jpg" alt="X" class="w-7 h-7 rounded-full">
+                </div>
+
+                <div class="hidden lg:flex space-x-8">
+                    <a href="#" class="hover:text-gray-400">About</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="bg-custom text-white font-mono font-bold px-4 py-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        Subscribe
+                    </a>
+                    
+                    <div class="lg:hidden">
+                        <button id="nav-toggle" class="text-white focus:outline-none">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-dark rounded-b-lg z-50 px-4 space-y-2">
+        <a href="#" class="block py-2 px-3 text-white border-2 border-white rounded-md hover:shadow-lg hover:shadow-white/50 transition duration-300">
+            About
+        </a>
+        </div>
+        </div>
+    </nav>
+
+
+    <div class="bg-dark pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <img src="Subhadeep.jpg" alt="X" class="w-20 h-20 rounded-lg">
+                </div>
+                <h1 class="text-custom text-2xl font-mono mb-1 font-bold sm:text-5xl md:text-6xl">
+                    Learn from India's Top Level School Students 
+                </h1>
+                <p class="mt-4 font-mono font-bold text-gray-400">
+                    The X is a project to collect and share the best high school advice for future students. It's completely free.
+                </p>
+
+                <div class="mt-6 flex flex-col items-center">
+                    <h2 class="text-xl font-bold mb-4 text-white">Subscribe to our Newsletter</h2>
+                    <form class="w-full max-w-md">
+                        <div class="flex flex-col md:flex-row rounded-3xl border-2 border-custom p-2 overflow-hidden">
+                            <input 
+                                type="email" 
+                                placeholder="Enter your email..." 
+                                class="flex-1 px-4 py-2 bg-dark pt-4 pb-4 focus:outline-none text-custom border-none"
+                            >
+                            <button 
+                                type="submit" 
+                                class="px-4 py-2 bg-custom text-white font-mono font-bold rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="mb-8">
+            <h2 class="text-3xl font-bold">Explore the world of great students</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Student Card 1 -->
+            <div class="bg-dark-secondary rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <img src="Subhadeep.jpg" alt="Student 1" class="w-full h-48 border-2 border-white object-cover">
+                <div class="p-4 bg-dark-secondary">
+                    <h2 class="text-white text-2xl font-bold mt-2 break-words">
+                        Student 1
+                    </h2>
+                    <p class="text-white font-times">Great Inspiration</p>
+                    <div class="mt-4 text-right">
+                        <time datetime="2025-01-15" class="text-gray-400 text-sm">
+                            Jan 15, 2025
+                        </time>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Card 2 -->
+            <div class="bg-dark-secondary rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <img src="Subhadeep.jpg" alt="Student 2" class="w-full h-48 border-2 border-white object-cover">
+                <div class="p-4 bg-dark-secondary">
+                    <h2 class="text-white text-2xl font-bold mt-2 break-words">
+                        Student 2
+                    </h2>
+                    <p class="text-white font-times">Another Great Inspiration</p>
+                    <div class="mt-4 text-right">
+                        <time datetime="2025-01-15" class="text-gray-400 text-sm">
+                            Jan 15, 2025
+                        </time>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16">
+            <h2 class="text-3xl font-bold mb-8">Some Popular Competitions You Might Be Interested In</h2>
+            <div class="space-y-8">
+                <!-- Competition 1 -->
+                <div class="bg-dark-secondary rounded-lg overflow-hidden shadow-lg">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Competition Name 1</h3>
+                        <p class="text-white font-semibold">
+                            Competition Description 
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Competition 2 -->
+                <div class="bg-dark-secondary rounded-lg overflow-hidden shadow-lg">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Competition Name 2</h3>
+                        <p class="text-white font-semibold">
+                            Competition Description 
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Competition 3 -->
+                <div class="bg-dark-secondary rounded-lg overflow-hidden shadow-lg">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Competition Name 3</h3>
+                        <p class="text-white font-semibold">
+                            Competition Description 
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Competition 4 -->
+                <div class="bg-dark-secondary rounded-lg overflow-hidden shadow-lg">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Competition Name 4</h3>
+                        <p class="text-white font-semibold">
+                            Competition Description 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <footer class="border-t border-gray-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-lg font-semibold mb-4">X</h3>
+                <p class="text-gray-400">
+                    We understand student life can be overwhelming, so we're here to guide you and keep cheering you on every step of the way.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-gray-300">Browse Archive</a></li>
+                    <li><a href="#" class="hover:text-gray-300">Categories</a></li>
+                    <li><a href="#" class="hover:text-gray-300">Submit Story</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-6">Newsletter</h3>
+                <div class="flex flex-col items-center">
+    <form class="w-full max-w-md">
+        <div class="flex flex-col rounded-3xl border-2 border-custom p-2 overflow-hidden">
+            <input 
+                type="email" 
+                placeholder="Enter your email..." 
+                class="flex-1 w-full px-4 py-2 bg-dark text-custom pt-4 pb-4 focus:outline-none border-none"
+            >
+            <button 
+                type="submit" 
+                class="px-4 py-2 bg-custom text-white font-mono font-bold rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600"
+            >
+                Subscribe
+            </button>
+        </div>
+    </form>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8">
+            <p>&copy; 2025 X. All rights reserved.</p>
+        </div>
+    </div>
+    </footer>
+    <script>
+        // Mobile menu toggle functionality
+        const navToggle = document.getElementById('nav-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        navToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+  </html>
