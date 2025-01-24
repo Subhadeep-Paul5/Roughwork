@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danny Hagenlocker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#151B2B',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-navy text-white p-6 md:p-12">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+        <!-- Left Column - ID Card -->
+        <div class="relative">
+            <div class="relative aspect-[3/4] bg-gray-800/50 rounded-2xl p-6 shadow-xl">
+                <img src="https://sjc.microlink.io/zkIYfsMrCnNksc3lleftpU1xiiJzr4n9VwC3OQsZe95S13FyiBCTZ-VJ9RdE-BADXa809CIUlms9XAVOnsr45A.jpeg" alt="ID Card" class="w-full h-full object-contain">
+                <div class="absolute top-6 left-6 space-y-4">
+                    <h1 class="text-4xl font-bold">Danny Hagenlocker</h1>
+                    <p class="text-gray-400">Student at|</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-gray-300"><i class="fab fa-linkedin w-6 h-6"></i></a>
+                        <a href="#" class="hover:text-gray-300"><i class="fab fa-github w-6 h-6"></i></a>
+                        <a href="#" class="hover:text-gray-300"><i class="fab fa-instagram w-6 h-6"></i></a>
+                        <a href="#" class="hover:text-gray-300"><i class="far fa-comment w-6 h-6"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column - Content -->
+        <div class="space-y-12">
+            <!-- About Section -->
+            <section>
+                <h2 class="text-lg font-semibold mb-4">ABOUT ME</h2>
+                <p class="text-gray-300">
+                    Hey, glad you're here! My name is Danny and I am a freshman at
+                    <span class="text-white">Stanford University</span> studying Electrical Engineering and
+                    Computer Science. Broadly speaking, I am interested in web dev, robotics, machine
+                    learning, aerospace, and sustainable technologies.
+                </p>
+            </section>
+
+            <!-- Experiences Section -->
+            <section>
+                <h2 class="text-lg font-semibold mb-6">EXPERIENCES</h2>
+                <div class="space-y-8">
+                    <!-- NASA Experience -->
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gray-700 rounded-lg"></div>
+                            <div>
+                                <h3 class="font-semibold">Research Intern</h3>
+                                <p class="text-gray-400">NASA + UT Austin</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-300">
+                            Wrote Python scripts to process TBs of geospatial data from ICESat-2 and LandSat-8
+                            satellites. Built Recurrent Neural Network predicting temporal changes in a water
+                            reservoir's capacity to yield timely and precise insights into potential water
+                            shortage events.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Python</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Machine Learning</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Data Parsing/Automation</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Climate Science</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Remote Sensing</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Jupyter</span>
+                        </div>
+                        <p class="text-xs text-gray-400">JUN 2022 - AUG 2022</p>
+                    </div>
+
+                    <!-- FIRST Robotics Experience -->
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gray-700 rounded-lg"></div>
+                            <div>
+                                <h3 class="font-semibold">Team President + Software Lead</h3>
+                                <p class="text-gray-400">FIRST Robotics</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-300">
+                            Led team in designing/programming robots for FRC World Championship, created
+                            engineering documentation, and helped grow the team from 20 to 45 students.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Java</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Physics Simulation</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Git</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Motion Control</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Path Planning</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">3D-Modelling</span>
+                        </div>
+                        <p class="text-xs text-gray-400">JAN 2022 - MAY 2024</p>
+                    </div>
+
+                    <!-- MITES Experience -->
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gray-700 rounded-lg"></div>
+                            <div>
+                                <h3 class="font-semibold">Researcher/Participant</h3>
+                                <p class="text-gray-400">MITES Semester</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-300">
+                            Led research project on convolutional neural networks, published science writing
+                            article about remote sensing, presented findings at MIT symposium.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Julia</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Machine Learning</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Convolutional Neural Nets</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Science Writing</span>
+                            <span class="px-2 py-1 bg-gray-700 rounded-full text-xs">Git</span>
+                        </div>
+                        <p class="text-xs text-gray-400">JUN 2023 - DEC 2023</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+                          </html>
