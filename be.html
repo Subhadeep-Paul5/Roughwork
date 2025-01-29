@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subhadeep Paul | Full-Stack Developer</title>
+    <meta name="description" content="High school student and aspiring developer passionate about creating impactful solutions.">
+    <link rel="icon" type="image/png" href="subhadeep.png">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { light: '#f8fafc', dark: '#0f172a' },
+                        accent: '#3b82f6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .animate-cursor {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-primary-light dark:bg-primary-dark text-slate-900 dark:text-slate-100 font-sans antialiased">
+    <header class="sticky top-0 z-50 bg-primary-light/90 dark:bg-primary-dark/90 backdrop-blur">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="text-xl font-mono font-semibold hover:text-accent transition-colors">
+                    Subhadeep<span class="text-accent">.</span>
+                </a>
+                
+                <div class="flex items-center gap-6">
+                    <div class="hidden md:flex gap-6">
+                        <a href="#about" class="hover:text-accent transition-colors">About</a>
+                        <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
+                        <a href="#blog" class="hover:text-accent transition-colors">Blog</a>
+                        <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+                    </div>
+                    
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                    
+                    <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-20">
+        <section class="max-w-3xl mb-24 fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                Building Digital Solutions<br>
+                <span class="text-accent">With Purpose</span>
+            </h1>
+            <p class="text-xl text-slate-600 dark:text-slate-400 mb-8">
+                High school student & developer passionate about creating impactful solutions through code.
+            </p>
+            <div class="flex gap-4">
+                <a href="#contact" class="bg-accent text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors">
+                    Get in Touch
+                </a>
+                <a href="#projects" class="border border-slate-300 dark:border-slate-700 px-6 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    View Work
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 fade-in">
+            <h2 class="text-3xl font-bold mb-12">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <p class="text-lg mb-6">
+                        I'm Subhadeep Paul, a student developer from Assam, India passionate about 
+                        building solutions that make a difference. My journey in tech focuses on
+                        creating meaningful projects while constantly expanding my knowledge.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="code" class="w-5 h-5 text-accent"></i>
+                            <span>Full-Stack Development</span>
+                        </div>
+                        <!-- Add more skills -->
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <!-- Add timeline/education -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Enhanced theme handling
+        const themeToggle = document.getElementById('theme-toggle');
+        const setTheme = (theme) => {
+            document.documentElement.classList.toggle('dark', theme === 'dark');
+            localStorage.setItem('theme', theme);
+        };
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+            setTheme(isDark ? 'light' : 'dark');
+        });
+
+        // Set initial theme
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        setTheme(savedTheme);
+
+        // Mobile menu handling
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        mobileMenuToggle.addEventListener('click', () => {
+            // Add mobile menu logic
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+  </html>
