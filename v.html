@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | Innovative Startup Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366F1',
+                        secondary: '#EC4899',
+                        accent: '#8B5CF6',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #6366F1, #EC4899, #8B5CF6); }
+        .section-spacing { @apply py-20 lg:py-28; }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-primary">NEXUS</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#products" class="hover:text-primary transition-colors">Products</a>
+                <a href="#solutions" class="hover:text-primary transition-colors">Solutions</a>
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#blog" class="hover:text-primary transition-colors">Blog</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+            </div>
+            <button class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section-spacing pt-32 text-center gradient-bg text-white">
+        <div class="container mx-auto px-6 max-w-5xl" data-aos="fade-up">
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
+                Ignite Your Digital <span class="bg-white text-primary px-4 rounded-lg">Revolution</span>
+            </h1>
+            <p class="text-xl mb-12 max-w-2xl mx-auto">
+                Empowering startups to disrupt industries through cutting-edge technology and innovative solutions.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button class="bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">Explore Solutions</button>
+                <button class="border-2 border-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary transition-colors">Watch Demo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="section-spacing bg-white" id="products">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Our Innovative Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="p-8 bg-gray-50 rounded-xl shadow-lg hover-lift" data-aos="fade-up">
+                    <div class="text-4xl mb-4 text-primary">🚀</div>
+                    <h3 class="text-xl font-semibold mb-4">AI-Powered Analytics</h3>
+                    <p class="text-gray-600">Harness the power of AI to unlock actionable insights and drive growth.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-xl shadow-lg hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4 text-secondary">⚡</div>
+                    <h3 class="text-xl font-semibold mb-4">Quantum Automation</h3>
+                    <p class="text-gray-600">Revolutionize your workflows with our quantum-inspired automation tools.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-xl shadow-lg hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4 text-accent">☁️</div>
+                    <h3 class="text-xl font-semibold mb-4">Nebula Cloud Suite</h3>
+                    <p class="text-gray-600">Scale your operations with our secure and flexible cloud solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section-spacing bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6 bg-white rounded-lg shadow-md hover-lift" data-aos="zoom-in">
+                    <div class="text-4xl font-bold text-primary">250+</div>
+                    <div class="text-gray-600 mt-2">Innovative Startups</div>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md hover-lift" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-4xl font-bold text-secondary">10M+</div>
+                    <div class="text-gray-600 mt-2">Data Points Analyzed</div>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md hover-lift" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-4xl font-bold text-accent">99.99%</div>
+                    <div class="text-gray-600 mt-2">Uptime Guarantee</div>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md hover-lift" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-4xl font-bold text-primary">500+</div>
+                    <div class="text-gray-600 mt-2">Disruptive Solutions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-spacing bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Voices of Innovation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover-lift" data-aos="fade-up">
+                    <p class="text-gray-600 italic">"Nexus transformed our startup with their cutting-edge AI solutions. We've seen a 300% increase in productivity!"</p>
+                    <div class="flex items-center mt-6">
+                        <img src="https://i.pravatar.cc/60?img=1" alt="Alex Smith" class="rounded-full w-12 h-12 mr-4">
+                        <div>
+                            <p class="text-gray-800 font-semibold">Alex Smith</p>
+                            <p class="text-gray-600 text-sm">CEO, TechNova</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-gray-600 italic">"The Nebula Cloud Suite allowed us to scale our operations globally without breaking a sweat. Nexus is a game-changer!"</p>
+                    <div class="flex items-center mt-6">
+                        <img src="https://i.pravatar.cc/60?img=2" alt="Maria Johnson" class="rounded-full w-12 h-12 mr-4">
+                        <div>
+                            <p class="text-gray-800 font-semibold">Maria Johnson</p>
+                            <p class="text-gray-600 text-sm">CTO, GlobeX</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section-spacing bg-gray-100" id="blog">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Latest Insights</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift" data-aos="fade-up">
+                    <img src="https://source.unsplash.com/random/800x600?tech" alt="Blog 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">The Future of AI in Startups</h3>
+                        <p class="text-gray-600">Exploring how artificial intelligence is reshaping the startup ecosystem.</p>
+                        <a href="#" class="text-primary mt-4 inline-block hover:underline">Read More →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://source.unsplash.com/random/800x600?startup" alt="Blog 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Quantum Computing: A New Frontier</h3>
+                        <p class="text-gray-600">Unraveling the potential of quantum computing for modern businesses.</p>
+                        <a href="#" class="text-primary mt-4 inline-block hover:underline">Read More →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://source.unsplash.com/random/800x600?innovation" alt="Blog 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">The Rise of No-Code Platforms</h3>
+                        <p class="text-gray-600">How no-code solutions are democratizing software development.</p>
+                        <a href="#" class="text-primary mt-4 inline-block hover:underline">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-spacing gradient-bg text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8" data-aos="fade-up">Ready to Ignite Your Startup's Potential?</h2>
+            <p class="text-xl mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Join the ranks of innovative companies leveraging Nexus to disrupt industries and scale globally.</p>
+            <button class="bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors text-lg font-semibold" data-aos="fade-up" data-aos-delay="200">
+                Start Your Journey
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">NEXUS</h3>
+                    <p class="text-gray-400">Empowering startups with innovative solutions.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">GitHub</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button type="submit" class="bg-primary px-4 py-2 rounded-r-lg hover:bg-opacity-90 transition-colors">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p>&copy; 2025 Nexus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({ duration: 800, once: true, easing: 'ease-out' });
+    </script>
+
+</body>
+</html>
+
+  
