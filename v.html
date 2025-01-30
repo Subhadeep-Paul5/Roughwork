@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Same meta tags and external resources -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | Innovative Startup Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: '#818CF8',
-                        secondary: #EC4899,
-                        accent: '#A78BFA',
-                        dark: '#0F172A',
+                        primary: '#6366F1',
+                        secondary: '#EC4899',
+                        accent: '#8B5CF6',
+                        darkBg: '#111827',
+                        darkCard: '#1F2937',
+                        darkText: '#E5E7EB',
                     },
                     fontFamily: {
                         sans: ['Poppins', 'sans-serif'],
@@ -24,18 +31,21 @@
         .gradient-bg { background: linear-gradient(135deg, #6366F1, #EC4899, #8B5CF6); }
         .section-spacing { @apply py-20 lg:py-28; }
         .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255,255,255,0.05); }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
     </style>
 </head>
-<body class="font-sans bg-gray-900 text-gray-100">
+<body class="font-sans bg-darkBg text-darkText">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-gray-800/80 backdrop-blur-md border-b border-gray-700">
+    <nav class="fixed w-full z-50 bg-darkCard/80 backdrop-blur-md border-b border-gray-700">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold text-primary">NEXUS</div>
-            <div class="hidden md:flex space-x-8 text-gray-300">
+            <div class="hidden md:flex space-x-8">
                 <a href="#products" class="hover:text-primary transition-colors">Products</a>
-                <!-- Other nav links -->
+                <a href="#solutions" class="hover:text-primary transition-colors">Solutions</a>
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#blog" class="hover:text-primary transition-colors">Blog</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
             </div>
             <button class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">Get Started</button>
         </div>
@@ -45,68 +55,70 @@
     <section class="section-spacing pt-32 text-center gradient-bg text-white">
         <div class="container mx-auto px-6 max-w-5xl" data-aos="fade-up">
             <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
-                Ignite Your Digital <span class="bg-gray-800 text-primary px-4 rounded-lg">Revolution</span>
+                Ignite Your Digital <span class="bg-white text-primary px-4 rounded-lg">Revolution</span>
             </h1>
-            <!-- Rest of hero content -->
+            <p class="text-xl mb-12 max-w-2xl mx-auto">
+                Empowering startups to disrupt industries through cutting-edge technology and innovative solutions.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button class="bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">Explore Solutions</button>
+                <button class="border-2 border-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary transition-colors">Watch Demo</button>
+            </div>
         </div>
     </section>
 
     <!-- Features Grid -->
-    <section class="section-spacing bg-gray-800" id="products">
+    <section class="section-spacing bg-darkBg" id="products">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16">Our Innovative Products</h2>
+            <h2 class="text-4xl font-bold text-center mb-16 text-darkText">Our Innovative Products</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="p-8 bg-gray-700 rounded-xl shadow-lg hover-lift" data-aos="fade-up">
+                <div class="p-8 bg-darkCard rounded-xl shadow-lg hover-lift" data-aos="fade-up">
                     <div class="text-4xl mb-4 text-primary">🚀</div>
                     <h3 class="text-xl font-semibold mb-4">AI-Powered Analytics</h3>
-                    <p class="text-gray-300">Harness the power of AI to unlock actionable insights and drive growth.</p>
+                    <p class="text-gray-400">Harness the power of AI to unlock actionable insights and drive growth.</p>
                 </div>
-                <!-- Other feature cards -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="section-spacing bg-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="p-6 bg-gray-700 rounded-lg shadow-md hover-lift" data-aos="zoom-in">
-                    <div class="text-4xl font-bold text-primary">250+</div>
-                    <div class="text-gray-300 mt-2">Innovative Startups</div>
+                <div class="p-8 bg-darkCard rounded-xl shadow-lg hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4 text-secondary">⚡</div>
+                    <h3 class="text-xl font-semibold mb-4">Quantum Automation</h3>
+                    <p class="text-gray-400">Revolutionize your workflows with our quantum-inspired automation tools.</p>
                 </div>
-                <!-- Other stats -->
+                <div class="p-8 bg-darkCard rounded-xl shadow-lg hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4 text-accent">☁️</div>
+                    <h3 class="text-xl font-semibold mb-4">Nebula Cloud Suite</h3>
+                    <p class="text-gray-400">Scale your operations with our secure and flexible cloud solutions.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="section-spacing bg-gray-900">
-        <div class="container mx-auto px-6">
-            <div class="bg-gray-800 p-8 rounded-lg shadow-lg hover-lift" data-aos="fade-up">
-                <p class="text-gray-300 italic">"Nexus transformed our startup..."</p>
-                <!-- Testimonial author -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section class="section-spacing bg-gray-800" id="blog">
-        <div class="container mx-auto px-6">
-            <div class="bg-gray-700 rounded-lg shadow-lg overflow-hidden hover-lift" data-aos="fade-up">
-                <!-- Blog content -->
-            </div>
+    <!-- CTA Section -->
+    <section class="section-spacing gradient-bg text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8" data-aos="fade-up">Ready to Ignite Your Startup's Potential?</h2>
+            <p class="text-xl mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Join the ranks of innovative companies leveraging Nexus to disrupt industries and scale globally.</p>
+            <button class="bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors text-lg font-semibold" data-aos="fade-up" data-aos-delay="200">
+                Start Your Journey
+            </button>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-12">
+    <footer class="bg-darkCard text-white py-12">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">NEXUS</h3>
-                    <p>Empowering startups with innovative solutions.</p>
+                    <h3 class="text-2xl font-bold mb-4">NEXUS</h3>
+                    <p class="text-gray-400">Empowering startups with innovative solutions.</p>
                 </div>
-                <!-- Footer columns -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="mt-8 pt-8 border-t border-gray-700 text-center">
                 <p>&copy; 2025 Nexus. All rights reserved.</p>
@@ -114,6 +126,9 @@
         </div>
     </footer>
 
-    <!-- Same script section -->
+    <script>
+        AOS.init({ duration: 800, once: true, easing: 'ease-out' });
+    </script>
+
 </body>
-</html>
+    </html>
