@@ -29,16 +29,16 @@
     </script>
     <style>
         .gradient-bg { background: linear-gradient(135deg, #6366F1, #EC4899, #8B5CF6); }
-        .section-spacing { @apply py-20 lg:py-28; }
+        .section-spacing { @apply py-24 lg:py-32; }
         .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
     </style>
 </head>
 <body class="font-sans bg-darkBg text-darkText">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-darkCard/80 backdrop-blur-md border-b border-gray-700">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Floating Navigation -->
+    <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 w-[90%] md:w-auto px-8 py-3 rounded-xl bg-darkCard/90 backdrop-blur-md shadow-lg z-50 border border-gray-700">
+        <div class="flex justify-between items-center">
             <div class="text-2xl font-bold text-primary">NEXUS</div>
             <div class="hidden md:flex space-x-8">
                 <a href="#products" class="hover:text-primary transition-colors">Products</a>
@@ -52,7 +52,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="section-spacing pt-32 text-center gradient-bg text-white">
+    <section class="section-spacing pt-40 text-center gradient-bg text-white">
         <div class="container mx-auto px-6 max-w-5xl" data-aos="fade-up">
             <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
                 Ignite Your Digital <span class="bg-white text-primary px-4 rounded-lg">Revolution</span>
@@ -131,4 +131,4 @@
     </script>
 
 </body>
-    </html>
+            </html>
