@@ -3,38 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archive</title>
+    <title>Subhadeep Paul</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="Subhadeep.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            lucide.createIcons();
+        });
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'x': '#6698FF',
+                    }
+                }
+            }
         }
-    </style>
+    </script>
 </head>
-<body class="bg-white text-gray-900 max-w-4xl mx-auto px-4 py-8">
-    <!-- Header -->
-    <header class="flex justify-between items-center mb-16">
-        <a href="/" class="text-red-500 font-medium text-lg">Naval</a>
-        <nav class="space-x-6 text-gray-500">
-            <a href="/archive" class="hover:text-gray-900">Archive</a>
-            <a href="https://twitter.com" class="hover:text-gray-900">Twitter</a>
-            <a href="https://instagram.com" class="hover:text-gray-900">Instagram</a>
-            <a href="/subscribe" class="hover:text-gray-900">Subscribe</a>
-        </nav>
-    </header>
+<body class="max-w-4xl mx-auto px-6 py-8 font-sans dark:bg-black bg-white dark:text-white text-black">
+  <main class="space-y-16">
 
-    <!-- Main Content -->
-    <main>
-        <h1 class="text-3xl font-semibold text-center mb-8">Archive</h1>
-        
-        <!-- Search Bar -->
-        <div class="mb-12">
-            <input type="search" 
-                   placeholder="Search..." 
-                   class="w-full p-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200"
-                   aria-label="Search articles">
-        </div>
+        <h1 class="text-3xl font-bold text-x mb-8">Archive</h1>
+        <div class="w-full h-[2px] dark:bg-white bg-black my-4 mb-8"></div>
 
         <!-- Top Posts Section -->
         <section class="mb-12">
@@ -68,5 +62,8 @@
             </ul>
         </section>
     </main>
+    <footer class="dark:bg-black bg-white dark:text-white text-black text-center py-4 mt-6">
+    <p class="text-sm">&copy; 2025 Subhadeep Paul. All rights reserved.</p>
+    </footer>
 </body>
   </html>
