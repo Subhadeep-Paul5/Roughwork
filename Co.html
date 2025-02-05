@@ -3,77 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Subhadeep Paul</title>
+    <title>Task Calendar</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden { display: none; }
+    </style>
 </head>
 <body class="bg-gray-900 text-white">
 
     <!-- Header Section -->
     <header class="text-center py-10">
-        <h1 class="text-4xl font-bold">Subhadeep Paul</h1>
-        <p class="text-xl mt-2">Developer & Entrepreneur</p>
+        <h1 class="text-4xl font-bold">Task Calendar</h1>
+        <p class="text-xl mt-2">Organize your tasks efficiently</p>
     </header>
 
-    <!-- About Me Section -->
-    <section id="about" class="py-10">
+    <!-- Calendar Section -->
+    <section id="calendar" class="py-10">
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">About Me</h2>
-            <p class="text-lg leading-relaxed">
-                Hi, I'm Subhadeep Paul. I am passionate about building scalable software solutions
-                and creating innovative business ideas. With a background in both development and entrepreneurship,
-                I aim to leverage my skills to make a significant impact in the tech industry.
-            </p>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-10 bg-gray-800">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-gray-700 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-2">Project Name 1</h3>
-                    <p class="leading-relaxed mb-4">
-                        Short description of the project. What technologies were used and what problem it solves.
-                    </p>
-                    <a href="#" class="text-blue-400 hover:underline">View Project</a>
+            <div class="grid grid-cols-7 gap-2">
+                <!-- Calendar Header -->
+                <div class="col-span-7 grid grid-cols-7 gap-2 text-lg font-bold">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
                 </div>
-                <!-- Project 2 -->
-                <div class="bg-gray-700 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-2">Project Name 2</h3>
-                    <p class="leading-relaxed mb-4">
-                        Short description of the project. What technologies were used and what problem it solves.
-                    </p>
-                    <a href="#" class="text-blue-400 hover:underline">View Project</a>
-                </div>
-                <!-- Project 3 -->
-                <div class="bg-gray-700 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-2">Project Name 3</h3>
-                    <p class="leading-relaxed mb-4">
-                        Short description of the project. What technologies were used and what problem it solves.
-                    </p>
-                    <a href="#" class="text-blue-400 hover:underline">View Project</a>
+                <!-- Calendar Days -->
+                <div class="col-span-7 grid grid-cols-7 gap-2 text-lg" id="calendar-days">
+                    <!-- Days will be populated by JavaScript -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-10">
+    <!-- Task Form Section -->
+    <section id="task-form" class="py-10 hidden">
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">Contact</h2>
-            <p class="text-lg leading-relaxed mb-4">
-                If you would like to get in touch, feel free to reach out via email or follow me on social media.
-            </p>
-            <a href="mailto:your-email@example.com" class="text-blue-400 hover:underline">your-email@example.com</a>
+            <h2 class="text-3xl font-bold mb-4">Add Task</h2>
+            <form id="add-task-form" class="bg-gray-800 p-6 rounded-lg max-w-md mx-auto">
+                <div class="mb-4">
+                    <label for="task-title" class="block text-lg font-bold mb-2">Task Title</label>
+                    <input type="text" id="task-title" class="w-full p-2 rounded bg-gray-700 text-white">
+                </div>
+                <div class="mb-4">
+                    <label for="task-date" class="block text-lg font-bold mb-2">Task Date</label>
+                    <input type="text" id="task-date" class="w-full p-2 rounded bg-gray-700 text-white" readonly>
+                </div>
+                <button type="submit" class="w-full p-2 bg-blue-500 rounded hover:bg-blue-600">Add Task</button>
+            </form>
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="py-6 text-center bg-gray-800">
-        <p>&copy; 2025 Subhadeep Paul. All rights reserved.</p>
-    </footer>
+    <!-- Task List Section -->
+    <section id="task-list" class="py-10 hidden">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Tasks for <span id="selected-date"></span></h2>
+            <ul id="tasks" class="bg-gray-800 p-6 rounded-lg max-w-md mx-auto">
+                <!-- Tasks will be populated by JavaScript -->
+            </ul>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Variables
+            const daysContainer = document.getElementById('calendar-days');
+            const taskFormSection = document.getElementById('task-form');
+            const taskListSection = document.getElementById('task-list');
+            const selectedDateElement = document.getElementById('selected-date');
+            const taskDateInput = document.getElementById('task-date');
+            const addTaskForm = document.getElementById('add-task-form');
+            const tasksContainer = document.getElementById('tasks');
+            let selectedDate = null;
+            let tasks = {};
+
+            // Generate Calendar Days
+            function generateCalendar() {
+                const currentDate = new Date();
+                const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+                const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+                const daysInMonth = lastDayOfMonth.getDate();
+                const startDay = firstDayOfMonth.getDay();
+
+                // Clear previous days
+                daysContainer.innerHTML = '';
+
+                // Add empty days for the first week
+                for (let i = 0; i < startDay; i++) {
+                    const emptyDay = document.createElement('div');
+                    daysContainer.appendChild(emptyDay);
+                }
+
+                // Add days of the month
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.classList.add('cursor-pointer', 'hover:bg-gray-700', 'p-2', 'rounded');
+                    dayElement.innerText = day;
+                    dayElement.addEventListener('click', function() {
+                        selectDate(currentDate.getFullYear(), currentDate.getMonth(), day);
+                    });
+                    daysContainer.appendChild(dayElement);
+                }
+            }
+
+            // Select a Date
+            function selectDate(year, month, day) {
+                selectedDate = new Date(year, month, day);
+                selectedDateElement.innerText = selectedDate.toDateString();
+                taskDateInput.value = selectedDate.toDateString();
+                taskFormSection.classList.remove('hidden');
+                taskListSection.classList.remove('hidden');
+                displayTasks();
+            }
+
+            // Display Tasks for Selected Date
+            function displayTasks() {
+                const dateKey = selectedDate.toDateString();
+                const tasksForDate = tasks[dateKey] || [];
+                tasksContainer.innerHTML = '';
+
+                if (tasksForDate.length === 0) {
+                    tasksContainer.innerHTML = '<li class="text-lg">No tasks for this date.</li>';
+                } else {
+                    tasksForDate.forEach(task => {
+                        const taskElement = document.createElement('li');
+                        taskElement.classList.add('text-lg', 'mb-2');
+                        taskElement.innerText = task;
+                        tasksContainer.appendChild(taskElement);
+                    });
+                }
+            }
+
+            // Handle Add Task Form Submission
+            addTaskForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const taskTitle = document.getElementById('task-title').value;
+                const dateKey = selectedDate.toDateString();
+
+                if (!tasks[dateKey]) {
+                    tasks[dateKey] = [];
+                }
+
+                tasks[dateKey].push(taskTitle);
+                displayTasks();
+                addTaskForm.reset();
+            });
+
+            // Initialize Calendar
+            generateCalendar();
+        });
+    </script>
 
 </body>
-  </html>
+        </html>
