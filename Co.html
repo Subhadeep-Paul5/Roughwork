@@ -3,160 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Calendar</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .hidden { display: none; }
-    </style>
+    <title>Colorful Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-gradient-to-r from-purple-400 to-blue-500 min-h-screen flex flex-col">
 
-    <!-- Header Section -->
-    <header class="text-center py-10">
-        <h1 class="text-4xl font-bold">Task Calendar</h1>
-        <p class="text-xl mt-2">Organize your tasks efficiently</p>
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-gray-700">My Calendar</h1>
+        <button id="addEventBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">+ Add Event</button>
     </header>
 
-    <!-- Calendar Section -->
-    <section id="calendar" class="py-10">
-        <div class="container mx-auto text-center">
-            <div class="grid grid-cols-7 gap-2">
-                <!-- Calendar Header -->
-                <div class="col-span-7 grid grid-cols-7 gap-2 text-lg font-bold">
-                    <div>Sun</div>
-                    <div>Mon</div>
-                    <div>Tue</div>
-                    <div>Wed</div>
-                    <div>Thu</div>
-                    <div>Fri</div>
-                    <div>Sat</div>
-                </div>
-                <!-- Calendar Days -->
-                <div class="col-span-7 grid grid-cols-7 gap-2 text-lg" id="calendar-days">
-                    <!-- Days will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Task Form Section -->
-    <section id="task-form" class="py-10 hidden">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">Add Task</h2>
-            <form id="add-task-form" class="bg-gray-800 p-6 rounded-lg max-w-md mx-auto">
-                <div class="mb-4">
-                    <label for="task-title" class="block text-lg font-bold mb-2">Task Title</label>
-                    <input type="text" id="task-title" class="w-full p-2 rounded bg-gray-700 text-white">
-                </div>
-                <div class="mb-4">
-                    <label for="task-date" class="block text-lg font-bold mb-2">Task Date</label>
-                    <input type="text" id="task-date" class="w-full p-2 rounded bg-gray-700 text-white" readonly>
-                </div>
-                <button type="submit" class="w-full p-2 bg-blue-500 rounded hover:bg-blue-600">Add Task</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Task List Section -->
-    <section id="task-list" class="py-10 hidden">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">Tasks for <span id="selected-date"></span></h2>
-            <ul id="tasks" class="bg-gray-800 p-6 rounded-lg max-w-md mx-auto">
-                <!-- Tasks will be populated by JavaScript -->
+    <div class="flex flex-1">
+        <!-- Sidebar -->
+        <aside class="w-1/4 bg-white p-4 border-r">
+            <h2 class="text-lg font-semibold mb-3">Tasks</h2>
+            <ul id="taskList" class="space-y-2">
+                <li class="p-2 bg-green-200 rounded-md">Complete project</li>
             </ul>
+            <input type="text" id="taskInput" placeholder="New Task" class="w-full p-2 mt-2 border rounded">
+            <button onclick="addTask()" class="mt-2 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">Add Task</button>
+        </aside>
+
+        <!-- Calendar -->
+        <main class="flex-1 p-6">
+            <div class="grid grid-cols-7 gap-2 text-center text-white">
+                <div class="bg-gray-800 p-2 rounded">Sun</div>
+                <div class="bg-gray-800 p-2 rounded">Mon</div>
+                <div class="bg-gray-800 p-2 rounded">Tue</div>
+                <div class="bg-gray-800 p-2 rounded">Wed</div>
+                <div class="bg-gray-800 p-2 rounded">Thu</div>
+                <div class="bg-gray-800 p-2 rounded">Fri</div>
+                <div class="bg-gray-800 p-2 rounded">Sat</div>
+            </div>
+            <div id="calendar" class="grid grid-cols-7 gap-2 mt-2"></div>
+        </main>
+    </div>
+
+    <!-- Add Event Modal -->
+    <div id="eventModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-md w-80">
+            <h2 class="text-lg font-semibold mb-2">Add Event</h2>
+            <input type="text" id="eventTitle" placeholder="Event Title" class="w-full p-2 border rounded">
+            <input type="date" id="eventDate" class="w-full p-2 border rounded mt-2">
+            <button onclick="addEvent()" class="mt-4 bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700">Save Event</button>
+            <button onclick="closeModal()" class="mt-2 w-full py-2 text-gray-600">Cancel</button>
         </div>
-    </section>
+    </div>
 
-    <!-- JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Variables
-            const daysContainer = document.getElementById('calendar-days');
-            const taskFormSection = document.getElementById('task-form');
-            const taskListSection = document.getElementById('task-list');
-            const selectedDateElement = document.getElementById('selected-date');
-            const taskDateInput = document.getElementById('task-date');
-            const addTaskForm = document.getElementById('add-task-form');
-            const tasksContainer = document.getElementById('tasks');
-            let selectedDate = null;
-            let tasks = {};
+        const calendar = document.getElementById('calendar');
+        const daysInMonth = new Date(2025, new Date().getMonth() + 1, 0).getDate();
 
-            // Generate Calendar Days
-            function generateCalendar() {
-                const currentDate = new Date();
-                const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-                const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
-                const daysInMonth = lastDayOfMonth.getDate();
-                const startDay = firstDayOfMonth.getDay();
-
-                // Clear previous days
-                daysContainer.innerHTML = '';
-
-                // Add empty days for the first week
-                for (let i = 0; i < startDay; i++) {
-                    const emptyDay = document.createElement('div');
-                    daysContainer.appendChild(emptyDay);
-                }
-
-                // Add days of the month
-                for (let day = 1; day <= daysInMonth; day++) {
-                    const dayElement = document.createElement('div');
-                    dayElement.classList.add('cursor-pointer', 'hover:bg-gray-700', 'p-2', 'rounded');
-                    dayElement.innerText = day;
-                    dayElement.addEventListener('click', function() {
-                        selectDate(currentDate.getFullYear(), currentDate.getMonth(), day);
-                    });
-                    daysContainer.appendChild(dayElement);
-                }
+        function renderCalendar() {
+            calendar.innerHTML = '';
+            for (let i = 1; i <= daysInMonth; i++) {
+                calendar.innerHTML += `<div onclick="openModal(${i})" class="bg-white p-4 rounded-lg shadow text-gray-800 cursor-pointer hover:bg-blue-200">${i}</div>`;
             }
+        }
 
-            // Select a Date
-            function selectDate(year, month, day) {
-                selectedDate = new Date(year, month, day);
-                selectedDateElement.innerText = selectedDate.toDateString();
-                taskDateInput.value = selectedDate.toDateString();
-                taskFormSection.classList.remove('hidden');
-                taskListSection.classList.remove('hidden');
-                displayTasks();
+        function openModal(day) {
+            document.getElementById('eventDate').value = `2025-02-${String(day).padStart(2, '0')}`;
+            document.getElementById('eventModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('eventModal').classList.add('hidden');
+        }
+
+        function addEvent() {
+            const title = document.getElementById('eventTitle').value;
+            const date = document.getElementById('eventDate').value;
+            if (title) alert(`Event "${title}" added on ${date}`);
+            closeModal();
+        }
+
+        function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            if (taskInput.value.trim()) {
+                const newTask = document.createElement('li');
+                newTask.classList.add('p-2', 'bg-green-200', 'rounded-md');
+                newTask.textContent = taskInput.value;
+                document.getElementById('taskList').appendChild(newTask);
+                taskInput.value = '';
             }
+        }
 
-            // Display Tasks for Selected Date
-            function displayTasks() {
-                const dateKey = selectedDate.toDateString();
-                const tasksForDate = tasks[dateKey] || [];
-                tasksContainer.innerHTML = '';
+        document.getElementById('addEventBtn').addEventListener('click', () => openModal(1));
 
-                if (tasksForDate.length === 0) {
-                    tasksContainer.innerHTML = '<li class="text-lg">No tasks for this date.</li>';
-                } else {
-                    tasksForDate.forEach(task => {
-                        const taskElement = document.createElement('li');
-                        taskElement.classList.add('text-lg', 'mb-2');
-                        taskElement.innerText = task;
-                        tasksContainer.appendChild(taskElement);
-                    });
-                }
-            }
-
-            // Handle Add Task Form Submission
-            addTaskForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                const taskTitle = document.getElementById('task-title').value;
-                const dateKey = selectedDate.toDateString();
-
-                if (!tasks[dateKey]) {
-                    tasks[dateKey] = [];
-                }
-
-                tasks[dateKey].push(taskTitle);
-                displayTasks();
-                addTaskForm.reset();
-            });
-
-            // Initialize Calendar
-            generateCalendar();
-        });
+        renderCalendar();
     </script>
-
 </body>
-        </html>
+</html>
