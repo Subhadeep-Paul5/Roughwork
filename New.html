@@ -1,178 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Responsive Themed Website with Code Animations</title>
-  <style>
-    /* Reset and basic styling */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      padding: 20px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    /* CSS Variables for Light Theme */
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #000000;
-      --accent-color: #007BFF;
-      --code-bg: #f4f4f4;
-    }
-    /* Dark Theme Overrides */
-    body.dark {
-      --bg-color: #000000;
-      --text-color: #ffffff;
-      --accent-color: #66B2FF;
-      --code-bg: #333333;
-    }
-    header, footer {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    header h1 {
-      margin-bottom: 10px;
-    }
-    .theme-toggle {
-      padding: 8px 16px;
-      border: none;
-      background-color: var(--accent-color);
-      color: var(--bg-color);
-      cursor: pointer;
-      font-size: 1rem;
-      border-radius: 4px;
-    }
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
-    }
-    /* Styling for code containers */
-    .code-container {
-      background-color: var(--code-bg);
-      padding: 15px;
-      margin: 20px 0;
-      border-radius: 5px;
-      font-family: Consolas, "Courier New", monospace;
-      white-space: pre-wrap;
-      min-height: 80px;
-    }
-    .section {
-      margin-bottom: 40px;
-    }
-    .section h2 {
-      margin-bottom: 10px;
-    }
-    .section h3 {
-      margin: 15px 0 5px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>My Responsive Themed Website</h1>
-    <button id="theme-toggle" class="theme-toggle">Toggle Theme</button>
-  </header>
-
-  <main>
-    <section class="section">
-      <h2>Welcome</h2>
-      <p>This is a simple responsive website that uses a basic font style and includes a dark/light theme toggle. Resize your window to see the responsive design, and click the button above to change the theme.</p>
-    </section>
-
-    <section class="section">
-      <h2>About</h2>
-      <p>This single-page website demonstrates how to include HTML, CSS, and JavaScript in one file. In addition, you’ll see animated code samples for JavaScript, Python, C, and Java that are “typed out” as if by a typewriter.</p>
-    </section>
-
-    <section class="section">
-      <h2>Code Animations</h2>
-      <div>
-        <h3>JavaScript</h3>
-        <div id="code-js" class="code-container"></div>
-      </div>
-      <div>
-        <h3>Python</h3>
-        <div id="code-python" class="code-container"></div>
-      </div>
-      <div>
-        <h3>C</h3>
-        <div id="code-c" class="code-container"></div>
-      </div>
-      <div>
-        <h3>Java</h3>
-        <div id="code-java" class="code-container"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 My Website. All rights reserved.</p>
-  </footer>
-
-  <script>
-    /* -------------------------------
-       Theme Toggle Functionality
-       ------------------------------- */
-    const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      // Optionally save the theme choice
-      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-    });
-    // Check for saved theme preference
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark');
-    }
-
-    /* -------------------------------
-       Typewriter Animation Function
-       ------------------------------- */
-    function typeWriter(element, text, speed, delay) {
-      setTimeout(() => {
-        let index = 0;
-        function type() {
-          if (index < text.length) {
-            element.textContent += text.charAt(index);
-            index++;
-            setTimeout(type, speed);
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Entrepreneur Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3498db',
+                        secondary: '#2c3e50',
+                    }
+                }
+            }
         }
-        type();
-      }, delay);
-    }
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-secondary text-white py-4">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">Your Name</h1>
+            <p class="text-xl">Entrepreneur & Innovator</p>
+        </div>
+    </header>
 
-    /* -------------------------------
-       Code Samples for Each Language
-       ------------------------------- */
-    const codeSamples = {
-      js: "console.log('Hello, World!');",
-      python: "print('Hello, World!')",
-      c: "#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
-      java: "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}"
-    };
+    <nav class="bg-primary text-white py-2">
+        <div class="container mx-auto px-4">
+            <ul class="flex space-x-4">
+                <li><a href="#about" class="hover:underline">About</a></li>
+                <li><a href="#projects" class="hover:underline">Projects</a></li>
+                <li><a href="#contact" class="hover:underline">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    /* -------------------------------
-       Start Animations on DOM Load
-       ------------------------------- */
-    document.addEventListener('DOMContentLoaded', () => {
-      typeWriter(document.getElementById('code-js'), codeSamples.js, 50, 0);
-      typeWriter(document.getElementById('code-python'), codeSamples.python, 50, 1500);
-      typeWriter(document.getElementById('code-c'), codeSamples.c, 30, 3000);
-      typeWriter(document.getElementById('code-java'), codeSamples.java, 50, 5000);
-    });
-  </script>
+    <main class="container mx-auto px-4 py-8">
+        <section id="about" class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">About Me</h2>
+            <p class="mb-4">Hello! I'm a passionate entrepreneur with a focus on [your area of expertise]. With [X] years of experience in [industry/field], I've successfully [brief accomplishment or two].</p>
+            <p>My mission is to [your mission or goal as an entrepreneur].</p>
+        </section>
+
+        <section id="projects" class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded shadow">
+                    <h3 class="text-xl font-semibold mb-2">Project 1</h3>
+                    <p>Description of your first project or venture.</p>
+                </div>
+                <div class="bg-white p-6 rounded shadow">
+                    <h3 class="text-xl font-semibold mb-2">Project 2</h3>
+                    <p>Description of your second project or venture.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">Contact Me</h2>
+            <form id="contactForm" class="max-w-md">
+                <div class="mb-4">
+                    <label for="name" class="block mb-2">Name:</label>
+                    <input type="text" id="name" name="name" required class="w-full px-3 py-2 border rounded">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block mb-2">Email:</label>
+                    <input type="email" id="email" name="email" required class="w-full px-3 py-2 border rounded">
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block mb-2">Message:</label>
+                    <textarea id="message" name="message" required class="w-full px-3 py-2 border rounded"></textarea>
+                </div>
+                <button type="submit" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-secondary text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="text/typescript">
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contactForm') as HTMLFormElement;
+            
+            contactForm.addEventListener('submit', (e: Event) => {
+                e.preventDefault();
+                
+                const nameInput = document.getElementById('name') as HTMLInputElement;
+                const emailInput = document.getElementById('email') as HTMLInputElement;
+                const messageInput = document.getElementById('message') as HTMLTextAreaElement;
+                
+                const name = nameInput.value;
+                const email = emailInput.value;
+                const message = messageInput.value;
+                
+                // Here you would typically send this data to a server
+                console.log('Form submitted:', { name, email, message });
+                
+                // Clear the form
+                contactForm.reset();
+                
+                // Show a success message (you can replace this with a more user-friendly notification)
+                alert('Thank you for your message! I will get back to you soon.');
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/typescript@5.0.4/lib/typescript.min.js"></script>
+    <script>
+        // Compile and execute TypeScript
+        const tsCode = document.querySelector('script[type="text/typescript"]').textContent;
+        const jsCode = ts.transpile(tsCode);
+        eval(jsCode);
+    </script>
 </body>
 </html>
