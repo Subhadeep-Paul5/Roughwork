@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Portfolio Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+        <h1 class="text-3xl font-bold mb-4">AI Portfolio Generator</h1>
+        <p class="mb-4">Enter your name to generate your AI-integrated portfolio website.</p>
+        <form id="portfolioForm">
+            <input type="text" id="nameInput" placeholder="Enter your name" class="p-2 rounded text-black">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Generate</button>
+        </form>
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <script>
+        document.getElementById("portfolioForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("nameInput").value;
+            if (name.trim() === "") {
+                document.getElementById("result").innerHTML = "<p class='text-red-500'>Please enter a valid name.</p>";
+                return;
+            }
+            document.getElementById("result").innerHTML = `
+                <div class="bg-gray-700 p-4 rounded mt-4">
+                    <h2 class="text-2xl font-bold">${name}'s AI Portfolio</h2>
+                    <p class="mt-2">Welcome to ${name}'s portfolio. This website is generated using AI.</p>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
